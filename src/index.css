@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #FF6B6B;
+  --color-secondary: #4ECDC4;
+  --color-dark: #2D3436;
+  --color-light: #F8F9FA;
+  
+  --animate-bounce-slow: bounce 3s infinite;
+  --animate-pulse-fast: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+body {
+  @apply bg-gray-50 text-gray-900;
+  font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom Utilities for Viral Feel */
+.btn-primary {
+  @apply bg-primary text-white font-bold py-4 px-6 rounded-2xl shadow-lg transform transition-all active:scale-95 hover:brightness-110;
+}
+
+.btn-secondary {
+  @apply bg-secondary text-white font-bold py-4 px-6 rounded-2xl shadow-lg transform transition-all active:scale-95 hover:brightness-110;
+}
+
+.card {
+  @apply bg-white rounded-3xl shadow-xl border-4 border-gray-100;
+}
