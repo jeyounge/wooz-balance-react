@@ -340,6 +340,14 @@ export default function ResultPage() {
             {/* Next */}
             <button 
                  onClick={() => {
+                     // Check Profile
+                     const profile = localStorage.getItem('wooz_user_profile');
+                     if (!profile) {
+                         alert("더 정확한 분석을 위해\n성별과 나이를 먼저 알려주세요! 🙇‍♂️");
+                         navigate('/setup');
+                         return;
+                     }
+
                      const category = q.category || 'all';
                      const indexKey = `wooz_index_${category}`;
                      const currentIndex = parseInt(sessionStorage.getItem(indexKey) || '0');
