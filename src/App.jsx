@@ -3,7 +3,9 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import QuestionPage from './pages/QuestionPage'
 import ResultPage from './pages/ResultPage'
 import HistoryPage from './pages/HistoryPage'
-import { Flame, History } from 'lucide-react'
+import CategoryPage from './pages/CategoryPage'
+import UserSetupPage from './pages/UserSetupPage'
+import { Flame, History, User } from 'lucide-react'
 
 function App() {
   return (
@@ -18,15 +20,23 @@ function App() {
             </h1>
           </Link>
           
-          <Link to="/history" className="p-2 text-gray-400 hover:text-primary transition-colors">
-            <History className="w-6 h-6" />
-          </Link>
+          
+          <div className="flex items-center gap-1">
+            <Link to="/history" className="p-2 text-gray-400 hover:text-primary transition-colors">
+              <History className="w-6 h-6" />
+            </Link>
+            <Link to="/setup" className="p-2 text-gray-400 hover:text-primary transition-colors">
+              <User className="w-6 h-6" />
+            </Link>
+          </div>
         </header>
 
         {/* Main Content */}
         <main className="w-full max-w-md flex-1 p-4 flex flex-col justify-center">
           <Routes>
-            <Route path="/" element={<QuestionPage />} />
+            <Route path="/" element={<CategoryPage />} />
+            <Route path="/setup" element={<UserSetupPage />} />
+            <Route path="/question/:category" element={<QuestionPage />} />
             <Route path="/result/:id" element={<ResultPage />} />
             <Route path="/history" element={<HistoryPage />} />
           </Routes>

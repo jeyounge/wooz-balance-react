@@ -21,7 +21,7 @@ export default function HistoryPage() {
     };
 
     return (
-        <div className="flex flex-col gap-6 animate-fade-in-up">
+        <div className="flex flex-col gap-3 animate-fade-in-up">
             <header className="flex items-center justify-between">
                 <button 
                     onClick={() => navigate(-1)} 
@@ -50,7 +50,7 @@ export default function HistoryPage() {
                         <div 
                             key={index}
                             onClick={() => navigate(`/result/${item.id}`)}
-                            className="bg-white p-4 rounded-2xl shadow-sm border-2 border-transparent hover:border-primary cursor-pointer transition-all active:scale-95"
+                            className="bg-white p-3 rounded-2xl shadow-sm border-2 border-transparent hover:border-primary cursor-pointer transition-all active:scale-95"
                         >
                             <div className="flex justify-between items-start mb-2">
                                 <span className={`text-xs font-bold px-2 py-1 rounded ${item.choice === 'A' ? 'bg-red-100 text-red-500' : 'bg-teal-100 text-teal-500'}`}>
