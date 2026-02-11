@@ -373,15 +373,18 @@ export default function ResultPage() {
            {/* Share */}
            <button 
                 onClick={() => {
-                    const url = window.location.href;
+                    const url = new URL(window.location.href);
+                    url.searchParams.set('shared', 'true');
+                    const shareUrl = url.toString();
+
                     if (navigator.share) {
                         navigator.share({
                             title: 'Wooz Balance',
                             text: '이 문제 어떻게 생각해? 투표해줘!',
-                            url: url,
+                            url: shareUrl,
                         }).catch((error) => console.log('Sharing failed', error));
                     } else {
-                        navigator.clipboard.writeText(url);
+                        navigator.clipboard.writeText(shareUrl);
                         alert('링크가 복사되었습니다!');
                     }
                 }}
