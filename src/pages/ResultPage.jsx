@@ -337,28 +337,38 @@ export default function ResultPage() {
                 </p>
            </div>
 
-            {/* Next */}
-            <button 
-                 onClick={() => {
-                     // Check Profile
-                     const profile = localStorage.getItem('wooz_user_profile');
-                     if (!profile) {
-                         alert("더 정확한 분석을 위해\n성별과 나이를 먼저 알려주세요! 🙇‍♂️");
-                         navigate('/setup');
-                         return;
-                     }
-
-                     const category = q.category || 'all';
-                     const indexKey = `wooz_index_${category}`;
-                     const currentIndex = parseInt(sessionStorage.getItem(indexKey) || '0');
-                     sessionStorage.setItem(indexKey, currentIndex + 1);
-                     navigate(`/question/${category}`);
-                 }}
-                 className="btn-primary w-full flex items-center justify-center gap-2 bg-black hover:bg-gray-800"
-            >
-                 다음 문제 풀기
-                 <ArrowRight className="w-5 h-5" />
-            </button>
+            {/* Next or Start (Shared Mode) */}
+            {!new URLSearchParams(location.search).get('shared') ? (
+                <button 
+                     onClick={() => {
+                         // Check Profile
+                         const profile = localStorage.getItem('wooz_balance_profile');
+                         if (!profile) {
+                             alert("더 정확한 분석을 위해\n성별과 나이를 먼저 알려주세요! 🙇‍♂️");
+                             navigate('/setup');
+                             return;
+                         }
+    
+                         const category = q.category || 'all';
+                         const indexKey = `wooz_index_${category}`;
+                         const currentIndex = parseInt(sessionStorage.getItem(indexKey) || '0');
+                         sessionStorage.setItem(indexKey, currentIndex + 1);
+                         navigate(`/question/${category}`);
+                     }}
+                     className="btn-primary w-full flex items-center justify-center gap-2 bg-black hover:bg-gray-800"
+                >
+                     다음 문제 풀기
+                     <ArrowRight className="w-5 h-5" />
+                </button>
+            ) : (
+                <button 
+                     onClick={() => navigate('/')}
+                     className="btn-primary w-full flex items-center justify-center gap-2 bg-gradient-to-r from-violet-500 to-fuchsia-500 hover:opacity-90 animate-pulse"
+                >
+                     나도 밸런스 게임 시작하기 🎮
+                     <ArrowRight className="w-5 h-5" />
+                </button>
+            )}
 
            {/* Share */}
            <button 

@@ -5,12 +5,7 @@ import { Utensils, Heart, Briefcase, Dices, Flame, Zap, Swords } from 'lucide-re
 export default function CategoryPage() {
     const navigate = useNavigate();
 
-    useEffect(() => {
-        const profile = localStorage.getItem('wooz_balance_profile');
-        if (!profile) {
-            navigate('/setup');
-        }
-    }, []);
+    // useEffect for profile check removed to allow browsing
 
     const categories = [
         { id: 'all', name: '전체 랜덤', icon: <Dices className="w-8 h-8"/>, color: 'bg-purple-100 text-purple-600', border: 'border-purple-200' },
@@ -34,6 +29,13 @@ export default function CategoryPage() {
                     <button
                         key={cat.id}
                         onClick={() => {
+                            // Check Profile before starting
+                            const profile = localStorage.getItem('wooz_balance_profile');
+                            if (!profile) {
+                                navigate('/setup');
+                                return;
+                            }
+                            
                             sessionStorage.removeItem(`wooz_queue_${cat.id}`);
                             sessionStorage.removeItem(`wooz_index_${cat.id}`);
                             navigate(`/question/${cat.id}`);
