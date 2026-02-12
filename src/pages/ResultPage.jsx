@@ -4,6 +4,7 @@ import { supabase } from '../supabaseClient';
 import { MessageSquareQuote, ArrowRight, Share2, Home, User, Calendar, Brain } from 'lucide-react';
 import CommentList from '../components/CommentList';
 import CommentForm from '../components/CommentForm';
+import { Helmet } from 'react-helmet-async';
 
 export default function ResultPage() {
     const { id } = useParams();
@@ -193,6 +194,10 @@ export default function ResultPage() {
 
     return (
         <div className="flex flex-col gap-3 animate-fade-in-up">
+           <Helmet>
+                <title>{q.title ? `${q.title} 결과 - Wooz Balance` : '투표 결과 - Wooz Balance'}</title>
+                <meta name="description" content={`현재 ${total.toLocaleString()}명 참여 중! 결과가 궁금하신가요?`} />
+           </Helmet>
            
            {/* Chart */}
            <div className="card p-4 flex flex-col gap-3">

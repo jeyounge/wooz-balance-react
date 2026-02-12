@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { Utensils, Heart, Briefcase, Dices, Flame, Zap, Swords } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 export default function CategoryPage() {
     const navigate = useNavigate();
@@ -19,6 +20,10 @@ export default function CategoryPage() {
 
     return (
         <div className="flex flex-col gap-3 animate-fade-in-up py-4">
+            <Helmet>
+                <title>주제 선택 - Wooz Balance</title>
+                <meta name="description" content="연애, 음식, 직장, 초능력 등 다양한 주제의 밸런스 게임을 즐겨보세요! 당신의 선택은?" />
+            </Helmet>
             <div className="text-center mb-4">
                 <h2 className="text-xl font-bold text-gray-700">오늘의 주제는?</h2>
                 <p className="text-gray-400 text-sm">원하는 테마를 선택해보세요!</p>

@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { supabase } from '../supabaseClient';
 import { Swords, Shuffle, MessageSquareQuote } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 
 export default function QuestionPage() {
@@ -145,6 +146,10 @@ export default function QuestionPage() {
 
     return (
         <div className="flex flex-col gap-3 animate-fade-in-up">
+            <Helmet>
+                <title>{question.title ? `${question.title} - Wooz Balance` : 'Wooz Balance'}</title>
+                <meta name="description" content={`A: ${question.option_a} vs B: ${question.option_b} 당신의 선택은?`} />
+            </Helmet>
             <h2 className="text-2xl font-bold text-center text-gray-800 break-keep">
                 {question.title}
             </h2>
