@@ -19,7 +19,7 @@ export default function PrivacyPage() {
                 <div className="space-y-6 text-sm text-gray-600 leading-relaxed">
                     <section>
                         <h2 className="text-lg font-bold text-gray-800 mb-2">1. 개인정보의 처리 목적</h2>
-                        <p>Wooz Balance('wooz-balance.vercel.app')는 다음의 목적을 위하여 개인정보를 처리하고 있으며, 다음의 목적 이외의 용도로는 이용하지 않습니다.</p>
+                        <p>Wooz Balance('balance.z-labs.kr')는 다음의 목적을 위하여 개인정보를 처리하고 있으며, 다음의 목적 이외의 용도로는 이용하지 않습니다.</p>
                         <ul className="list-disc pl-5 mt-2 space-y-1">
                             <li>서비스 제공: 밸런스 게임 투표 및 결과 분석 서비스 제공</li>
                             <li>통계 분석: 익명화된 투표 데이터를 활용한 통계 분석</li>

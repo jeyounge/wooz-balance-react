@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://wooz-balance.vercel.app/sitemap.xml
+Sitemap: https://balance.z-labs.kr/sitemap.xml
