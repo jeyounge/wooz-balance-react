@@ -49,7 +49,11 @@ function App() {
 
           {/* Footer */}
           <footer className="w-full p-4 text-center text-gray-400 text-xs">
-            © 2026 Wooz Labs. <Link to="/privacy" className="underline hover:text-gray-600">개인정보처리방침</Link>
+            © 2026 Wooz Labs. 
+            <span className="mx-2">|</span> 
+            <Link to="/privacy" className="underline hover:text-gray-600">개인정보처리방침</Link>
+            <span className="mx-2">|</span>
+            <a href="https://z-labs.kr/inquiry" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-600">문의하기</a>
           </footer>
         </div>
       </Router>
