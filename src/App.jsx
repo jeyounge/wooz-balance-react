@@ -9,6 +9,7 @@ import { Flame, History, User } from 'lucide-react'
 
 import { HelmetProvider } from 'react-helmet-async';
 import PrivacyPage from './pages/PrivacyPage';
+import InquiryPage from './pages/InquiryPage';
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
               <Route path="/result/:id" element={<ResultPage />} />
               <Route path="/history" element={<HistoryPage />} />
               <Route path="/privacy" element={<PrivacyPage />} />
+              <Route path="/inquiry" element={<InquiryPage />} />
             </Routes>
           </main>
 
@@ -53,7 +55,7 @@ function App() {
             <span className="mx-2">|</span> 
             <Link to="/privacy" className="underline hover:text-gray-600">개인정보처리방침</Link>
             <span className="mx-2">|</span>
-            <a href="https://z-labs.kr/inquiry" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-600">문의하기</a>
+            <Link to="/inquiry" className="underline hover:text-gray-600">문의하기</Link>
           </footer>
         </div>
       </Router>
